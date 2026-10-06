@@ -510,11 +510,11 @@
         
         // 1. Create Mixed Buttons
         const ranges = [
-            { label: "Mixed 2-4", min: 2, max: 4 },
+            { label: "Mixed 1-4", min: 1, max: 4 },
             { label: "Mixed 5-7", min: 5, max: 7 },
             { label: "Mixed 8-10", min: 8, max: 10 },
             { label: "Mixed 11-12", min: 11, max: 12 },
-            { label: "Mixed All (2-12)", min: 2, max: 12, isAll: true }
+            { label: "Mixed All (1-12)", min: 1, max: 12, isAll: true }
         ];
 
         ranges.forEach(range => {
@@ -565,7 +565,7 @@
         let rangeTitle = "";
         if (min === max) {
             rangeTitle = `${min}s`;
-        } else if (min === 2 && max === 12) {
+        } else if (min === 1 && max === 12) {
             rangeTitle = "Mixed All";
         } else {
             rangeTitle = `Mixed ${min}-${max}`;
@@ -705,8 +705,8 @@
         let label = "";
         if (state.minFactor === state.maxFactor) {
             label = `${state.minFactor}s`;
-        } else if (state.minFactor === 2 && state.maxFactor === 12) {
-            label = "All (2-12)";
+        } else if (state.minFactor === 1 && state.maxFactor === 12) {
+            label = "All (1-12)";
         } else {
             label = `Mix ${state.minFactor}-${state.maxFactor}`;
         }
@@ -890,7 +890,7 @@
         const op = state.mode === 'addition' ? 'Add' : 'Sub';
         let set;
         if (state.minFactor === state.maxFactor) set = `${state.minFactor}s`;
-        else if (state.minFactor === 2 && state.maxFactor === 12) set = 'All 2-12';
+        else if (state.minFactor === 1 && state.maxFactor === 12) set = 'All 1-12';
         else set = `Mixed ${state.minFactor}-${state.maxFactor}`;
         return `${op} · ${set}` + (state.timer.active ? ' · Timed' : '') + (state.answerStyle === 'choice' ? ' · Choice' : '');
     }
